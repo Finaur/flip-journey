@@ -5,7 +5,7 @@ use Core\Config;
 use Vendor\ConnectDb;
 
 //TO-DO Create Database
-$connect  = new Vendor\ConnectDb();
+$connect  = new ConnectDb();
 $con_node = $connect->open_connect();
 
 $qry_create_db = "CREATE DATABASE flip_journey";
