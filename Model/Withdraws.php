@@ -16,10 +16,10 @@ class Withdraws
         $this->con_node = $this->connect->connect_db();
     }
 
-    public function getRequest()
+    public function getRequest($status)
     {
         // TO-DO Get Request Withdraw
-        $getDataRequest = "SELECT * FROM flip_withdraw WHERE status = 'REQUEST'";
+        $getDataRequest = "SELECT * FROM flip_withdraw WHERE status = '".$status."'";
         $getData        = mysqli_query($this->con_node, $getDataRequest);
 
         return mysqli_fetch_all($getData, MYSQLI_ASSOC);
@@ -37,8 +37,15 @@ class Withdraws
         return $updateData;
     }
 
-    public function updateRequest()
+    public function updateRequest($data_flip)
     {
         // TO-DO Update Status Response after Withdraw Processed
+        $updateDataRequest = "UPDATE flip_withdraw 
+            SET status = 'SUCCESS', receipt = '".$data_flip->receipt."',
+            time_served = '".$data_flip->time_served."'
+            WHERE request_id = ".$data_flip->id;
+        $updateData = mysqli_query($this->con_node, $updateDataRequest);
+
+        return $updateData;
     }
 }
