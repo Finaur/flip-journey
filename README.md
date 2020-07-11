@@ -3,7 +3,7 @@
 
 How to install
 1. Set database configuration on `Core/Config.php` file.
-2. Execute Create Database, Create Table and Import data demo with `php7.2 InstallSchema.php`.
+2. Execute Create Database, Create Table and Import data demo with command line `php7.2 InstallSchema.php`.
 
 
 Main Process
