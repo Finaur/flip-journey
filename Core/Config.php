@@ -12,6 +12,6 @@ class Config
     const DB_NAME       = 'flip_journey';
 
     //Flip Config
-    const SECRET_KEY_FLIP   = 'HyzioY7LP6ZoO7nTYKbG8O4ISkyWnX1JvAEVAhtWKZumooCzqp41';
+    const SECRET_KEY_FLIP   = 'SHl6aW9ZN0xQNlpvTzduVFlLYkc4TzRJU2t5V25YMUp2QUVWQWh0V0tadW1vb0N6cXA0MTo=';
     const URL_FLIP          = "https://nextar.flip.id/disburse";
 }

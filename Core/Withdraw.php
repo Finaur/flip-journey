@@ -22,7 +22,12 @@ class Withdraw
 
         foreach($dataRequest as $data)
         {
-            $this->flip->createTransaction($data);
+            $response_create = $this->flip->createTransaction($data);
+            $dt_create_transaction = json_decode($response_create);
+
+            if(isset($dt_create_transaction->id)) {
+                $this->withdraw->saveRequest($data, $dt_create_transaction);
+            }
         }
     }
 }

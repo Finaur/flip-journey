@@ -12,7 +12,7 @@ class FlipSlightly
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://nextar.flip.id/disburse",
+            CURLOPT_URL => Config::URL_FLIP,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -25,13 +25,13 @@ class FlipSlightly
                 "&amount=".$data['amount']."&remark=".$data['remark'],
             CURLOPT_HTTPHEADER => array(
                 "Content-Type: application/x-www-form-urlencoded",
-                "Authorization: Basic SHl6aW9ZN0xQNlpvTzduVFlLYkc4TzRJU2t5V25YMUp2QUVWQWh0V0tadW1vb0N6cXA0MTo="
+                "Authorization: Basic ".Config::SECRET_KEY_FLIP
             ),
         ));
 
         $response = curl_exec($curl);
 
         curl_close($curl);
-        echo $response."\n\n";
+        return $response;
     }
 }

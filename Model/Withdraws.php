@@ -25,9 +25,16 @@ class Withdraws
         return mysqli_fetch_all($getData, MYSQLI_ASSOC);
     }
 
-    public function saveRequest()
+    public function saveRequest($data_db, $data_flip)
     {
         // TO-DO Save Response after Withdraw Processed
+        $saveDataRequest = "UPDATE flip_withdraw 
+            SET request_id = ".$data_flip->id.", status = 'PENDING', fee = ".$data_flip->fee."
+            WHERE id = ".$data_db['id'];
+
+        $updateData = mysqli_query($this->con_node, $saveDataRequest);
+
+        return $updateData;
     }
 
     public function updateRequest()
